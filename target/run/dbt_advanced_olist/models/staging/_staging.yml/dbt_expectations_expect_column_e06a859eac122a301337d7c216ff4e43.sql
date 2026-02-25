@@ -6,7 +6,7 @@
     from (
       
         select *
-        from `big-query-dbt-481111`.`dbt_dev_yourname_dbt_test__audit`.`dbt_expectations_expect_column_e06a859eac122a301337d7c216ff4e43`
+        from `data-cbf-485811`.`raw_olist_dbt_test__audit`.`dbt_expectations_expect_column_e06a859eac122a301337d7c216ff4e43`
     
       
     ) dbt_internal_test

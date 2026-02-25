@@ -4,13 +4,13 @@
 
 with child as (
     select product_id as from_field
-    from `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_order_items`
+    from `data-cbf-485811`.`raw_olist_staging`.`stg_order_items`
     where product_id is not null
 ),
 
 parent as (
     select product_id as to_field
-    from `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_products`
+    from `data-cbf-485811`.`raw_olist_staging`.`stg_products`
 )
 
 select

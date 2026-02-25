@@ -1,6 +1,6 @@
 
 
-  create or replace view `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_orders`
+  create or replace view `data-cbf-485811`.`raw_olist_staging`.`stg_orders`
   OPTIONS()
   as 
 
@@ -18,10 +18,14 @@
 */
 
 with source as (
-    select * from `big-query-dbt-481111`.`raw_olist`.`orders`
+
+    select * 
+    from `data-cbf-485811`.`raw_olist_source`.`orders`
+
 ),
 
 renamed as (
+
     select
         -- Primary Key
         order_id,
@@ -31,6 +35,12 @@ renamed as (
         
         -- Order Status
         order_status,
+
+        case
+            when order_status = 'delivered' then 'Completed'
+            when order_status = 'canceled' then 'Canceled'
+            else 'In Progress'
+        end as order_status_group,
         
         -- Timestamps (cast to proper types)
         cast(order_purchase_timestamp as timestamp) as ordered_at,
@@ -55,7 +65,8 @@ renamed as (
         -- Derived: Is delivery late?
         case
             when order_delivered_customer_date is not null 
-                and cast(order_delivered_customer_date as timestamp) > cast(order_estimated_delivery_date as timestamp)
+                 and cast(order_delivered_customer_date as timestamp) 
+                     > cast(order_estimated_delivery_date as timestamp)
             then true
             else false
         end as is_late_delivery,
@@ -63,7 +74,8 @@ renamed as (
         -- Derived: Days late (if late)
         case
             when order_delivered_customer_date is not null 
-                and cast(order_delivered_customer_date as timestamp) > cast(order_estimated_delivery_date as timestamp)
+                 and cast(order_delivered_customer_date as timestamp) 
+                     > cast(order_estimated_delivery_date as timestamp)
             then date_diff(
                 date(cast(order_delivered_customer_date as timestamp)),
                 date(cast(order_estimated_delivery_date as timestamp)),
@@ -73,10 +85,8 @@ renamed as (
         end as days_late
 
     from source
+
 )
 
-select * from renamed
-
--- Limit in dev for faster iteration
-limit 1000;
+select * from renamed;
 

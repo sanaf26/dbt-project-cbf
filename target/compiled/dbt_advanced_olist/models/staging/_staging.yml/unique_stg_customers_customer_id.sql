@@ -5,7 +5,7 @@
 with dbt_test__target as (
 
   select customer_id as unique_field
-  from `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_customers`
+  from `data-cbf-485811`.`raw_olist_staging`.`stg_customers`
   where customer_id is not null
 
 )

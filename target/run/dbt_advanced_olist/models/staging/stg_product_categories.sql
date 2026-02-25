@@ -1,6 +1,6 @@
 
 
-  create or replace view `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_product_categories`
+  create or replace view `data-cbf-485811`.`raw_olist_staging`.`stg_product_categories`
   OPTIONS()
   as 
 /*
@@ -9,7 +9,7 @@
   Source: Olist Brazilian E-commerce
 */
 with source as (
-    select * from `big-query-dbt-481111`.`raw_olist`.`product_category_name_translation`
+    select * from `data-cbf-485811`.`raw_olist_source`.`product_category_name_translation`
 ),
 renamed as (
     select

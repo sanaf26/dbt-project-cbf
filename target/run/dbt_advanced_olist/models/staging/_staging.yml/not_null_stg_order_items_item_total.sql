@@ -6,7 +6,7 @@
     from (
       
         select *
-        from `big-query-dbt-481111`.`dbt_dev_yourname_dbt_test__audit`.`not_null_stg_order_items_item_total`
+        from `data-cbf-485811`.`raw_olist_dbt_test__audit`.`not_null_stg_order_items_item_total`
     
       
     ) dbt_internal_test

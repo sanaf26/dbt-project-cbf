@@ -5,7 +5,7 @@
 
 
 select *
-from `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_order_items`
+from `data-cbf-485811`.`raw_olist_staging`.`stg_order_items`
 where order_item_key is null
 
 

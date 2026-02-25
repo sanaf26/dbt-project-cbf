@@ -1,0 +1,12 @@
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+        select *
+        from `data-cbf-485811`.`raw_olist_dbt_test__audit`.`source_accepted_values_raw_oli_5d5243ee918426683371a63d07d3686f`
+    
+      
+    ) dbt_internal_test

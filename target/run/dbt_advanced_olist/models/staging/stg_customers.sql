@@ -1,6 +1,6 @@
 
 
-  create or replace view `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_customers`
+  create or replace view `data-cbf-485811`.`raw_olist_staging`.`stg_customers`
   OPTIONS()
   as 
 
@@ -16,7 +16,7 @@
 */
 
 with source as (
-    select * from `big-query-dbt-481111`.`raw_olist`.`customers`
+    select * from `data-cbf-485811`.`raw_olist_source`.`customers`
 ),
 
 renamed as (

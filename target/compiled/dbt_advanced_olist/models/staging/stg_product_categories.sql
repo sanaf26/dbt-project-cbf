@@ -5,7 +5,7 @@
   Source: Olist Brazilian E-commerce
 */
 with source as (
-    select * from `big-query-dbt-481111`.`raw_olist`.`product_category_name_translation`
+    select * from `data-cbf-485811`.`raw_olist_source`.`product_category_name_translation`
 ),
 renamed as (
     select

@@ -13,7 +13,7 @@
 */
 
 with source as (
-    select * from `big-query-dbt-481111`.`raw_olist`.`order_items`
+    select * from `data-cbf-485811`.`raw_olist_source`.`order_items`
 ),
 
 renamed as (

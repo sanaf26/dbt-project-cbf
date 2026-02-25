@@ -12,7 +12,7 @@
 */
 
 with source as (
-    select * from `big-query-dbt-481111`.`raw_olist`.`products`
+    select * from `data-cbf-485811`.`raw_olist_source`.`products`
 ),
 
 renamed as (

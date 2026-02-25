@@ -16,7 +16,7 @@
  as expression
 
 
-    from `big-query-dbt-481111`.`dbt_dev_yourname_staging`.`stg_orders`
+    from `data-cbf-485811`.`raw_olist_staging`.`stg_orders`
     where
         delivery_days is not null
     
